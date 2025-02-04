@@ -11,7 +11,6 @@ def index():
 
 @app.route('/convert-to-pdf', methods=['POST'])
 def convert_to_pdf():
-    print("Received request")
     if 'file' not in request.files:
         return {'error': 'No file provided'}, 400
         
