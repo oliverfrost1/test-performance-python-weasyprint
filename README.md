@@ -1,4 +1,8 @@
-## Quick Start
+# WeasyPrint PDF Converter Server
+
+A simple Flask server that converts XHTML to PDF using WeasyPrint.
+
+## Quick Start (Development)
 
 1. Install Git:
 
@@ -48,11 +52,19 @@ pip install -r requirements.txt
 6. Run the server:
 
 ```bash
-python app.py
+gunicorn --bind 0.0.0.0:5000 app:app
 ```
+
+With more workers:
+
+```bash
+gunicorn --bind 0.0.0.0:5000 --workers 3 app:app
+```
+
+The server will start on IP:5000
 
 7. Open port:
 
 Add port 5000 to the Amazon EC2 instance security group TCP inbound traffic.
 
-The server will start on http://localhost:5000
+**OBS: Dette er uden reverse proxy og HTTPS**
